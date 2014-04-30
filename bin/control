@@ -7,6 +7,7 @@ FUSE_PASSWD_FILE=${OPENSHIFT_FUSE_DIR}/container/etc/passwd
 FUSE_USRPROPS_FILE=${OPENSHIFT_FUSE_DIR}/container/etc/users.properties
 FUSE_SYSPROPS_FILE=${OPENSHIFT_FUSE_DIR}/container/etc/system.properties
 FABRIC_CHECKER=${OPENSHIFT_FUSE_DIR}/container/etc/fabric-configured
+FUSE_KEYSTORE_FILE=${OPENSHIFT_FUSE_DIR}/container/etc/keystore.jks
 
 function replace_property_value {
   sed "s/$1.*=.*/$1 = $2/g" $3 > $3.tmp
@@ -34,6 +35,10 @@ function setup() {
 	echo "admin=${OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD},admin" > $FUSE_USRPROPS_FILE
 	echo "${OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD}" > $FUSE_PASSWD_FILE
 	echo "zookeeper.password=${OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD}" >> $FUSE_SYSPROPS_FILE
+
+    # Lets create a self generated cert for SSL
+    keytool -genkey -storetype JKS -storepass "${OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD}" -keystore "${FUSE_KEYSTORE_FILE}" -keypass "${OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD}" -alias "${OPENSHIFT_GEAR_DNS}" -keyalg RSA -keysize 4096 -dname "cn=${OPENSHIFT_GEAR_DNS}" -validity 3650
+    CERT=`keytool -exportcert -keystore "${FUSE_KEYSTORE_FILE}" -alias ${OPENSHIFT_GEAR_DNS} -storepass "${OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD}" --rfc`
 
 	# Configure to join an existing fabric
 	join=false
@@ -67,6 +72,8 @@ function setup() {
 	client_result ""
 	client_result "   The Fuse Management Console will be available shortly at: http://${OPENSHIFT_GEAR_DNS}"
 	client_result ""
+    client_result "SSL self signed certificate: "
+    client_result "$CERT"
 
 	add_domain_env_var "OPENSHIFT_FUSE_DOMAIN_ZOOKEEPER_URL=${OPENSHIFT_FUSE_ZOOKEEPER_URL}"
 	add_domain_env_var "OPENSHIFT_FUSE_DOMAIN_ZOOKEEPER_PASSWORD=${OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD}"
