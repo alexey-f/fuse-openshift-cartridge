@@ -1,6 +1,6 @@
 Name: fuse
 Cartridge-Short-Name: FUSE
-Display-Name: JBoss Fuse 6.1.0 EA with SSL enabled
+Display-Name: JBoss Fuse 6.1.0 EA
 Description: "Runs a JBoss Fuse container on OpenShift."
 Version: '1.0.0'
 Source-Url: https://github.com/alexey-f/fuse-openshift-cartridge/archive/master.zip
