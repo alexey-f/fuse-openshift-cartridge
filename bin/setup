@@ -2,7 +2,8 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-BUILD=redhat-379
+VERSION=1.1.0
+BUILD=CR5
 
 case "$1" in
   -v|--version)
@@ -15,11 +16,11 @@ mkdir -p $OPENSHIFT_FUSE_DIR
 cd $OPENSHIFT_FUSE_DIR
 
 # try public fuse repository and fallback to ea repository
-HTTP_CODE=`curl --write-out %{http_code} --silent --output fabric8-karaf-1.0.0.${BUILD}.zip https://repository.jboss.org/nexus/content/groups/fs-public/io/fabric8/fabric8-karaf/1.0.0.${BUILD}/fabric8-karaf-1.0.0.${BUILD}.zip`
+HTTP_CODE=`curl --write-out %{http_code} --silent --output fabric8-karaf-${VERSION}.${BUILD}.zip https://repository.jboss.org/nexus/content/groups/fs-public/io/fabric8/fabric8-karaf/${VERSION}.${BUILD}/fabric8-karaf-${VERSION}.${BUILD}.zip`
 if [ $HTTP_CODE != 200 ]; then
-  curl --write-out %{http_code} --silent --output fabric8-karaf-1.0.0.${BUILD}.zip https://repository.jboss.org/nexus/content/groups/ea/io/fabric8/fabric8-karaf/1.0.0.${BUILD}/fabric8-karaf-1.0.0.${BUILD}.zip
+  curl --write-out %{http_code} --silent --output fabric8-karaf-${VERSION}.${BUILD}.zip https://repository.jboss.org/nexus/content/groups/ea/io/fabric8/fabric8-karaf/${VERSION}.${BUILD}/fabric8-karaf-${VERSION}.${BUILD}.zip
 fi
-unzip fabric8-karaf-1.0.0.${BUILD}.zip
-ln -s fabric8-karaf-1.0.0.${BUILD} container
+unzip fabric8-karaf-${VERSION}.${BUILD}.zip
+ln -s fabric8-karaf-${VERSION}.${BUILD} container
 
 
