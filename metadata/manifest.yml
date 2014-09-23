@@ -115,7 +115,7 @@ Endpoints:
     Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
     Private-Port-Name: MQTT_PORT
-    Private-Port:      31383
+    Private-Port:      31312
     Public-Port-Name:  MQTT_PROXY_PORT
     Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
