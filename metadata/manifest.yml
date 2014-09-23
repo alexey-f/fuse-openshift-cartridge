@@ -96,79 +96,33 @@ Endpoints:
     Private-Port:      3128
     Public-Port-Name:  ZOOKEEPER_PROXY_PORT
     Options:           { "ssl_to_gear": true }
-
-  # AMQ Ports.
   - Private-IP-Name:   IP
-    Private-Port-Name: OPENWIRE_PORT
+    Private-Port-Name: AMQ_PORT
     Private-Port:      31313
-    Public-Port-Name:  OPENWIRE_PROXY_PORT
+    Public-Port-Name:  AMQ_PROXY_PORT
     Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
-    Private-Port-Name: STOMP_PORT
-    Private-Port:      31323
-    Public-Port-Name:  STOMP_PROXY_PORT
-    Options:           { "ssl_to_gear": true }
-  - Private-IP-Name:   IP
-    Private-Port-Name: AMQP_PORT
-    Private-Port:      31333
-    Public-Port-Name:  AMQP_PROXY_PORT
-    Options:           { "ssl_to_gear": true }
-  - Private-IP-Name:   IP
-    Private-Port-Name: MQTT_PORT
-    Private-Port:      31312
-    Public-Port-Name:  MQTT_PROXY_PORT
-    Options:           { "ssl_to_gear": true }
-  - Private-IP-Name:   IP
-    Private-Port-Name: REPLICATION_PORT
-    Private-Port:      31393
-    Public-Port-Name:  REPLICATION_PROXY_PORT
-    Options:           { "ssl_to_gear": true }
-#
-# SNI routed SSL ports..
-#
-  - Private-IP-Name:   IP
-    Private-Port-Name: OPENWIRE_SSL_PORT
+    Private-Port-Name: AMQ_SSL_PORT
     Private-Port:      31314
-    Public-Port-Name:  OPENWIRE_SSL_PROXY_PORT
+    Public-Port-Name:  AMQ_SSL_PROXY_PORT
     Protocols: [tls]
     Mappings:
     - Frontend: 'TLS_PORT_1'
       Backend: ''
   - Private-IP-Name:   IP
-    Private-Port-Name: STOMP_SSL_PORT
-    Private-Port:      31324
-    Public-Port-Name:  STOMP_SSL_PROXY_PORT
-    Protocols: [tls]
-    Mappings:
-    - Frontend: 'TLS_PORT_2'
-      Backend: ''
+    Private-Port-Name: ES_HTTP_PORT
+    Private-Port:      18080
+    Public-Port-Name:  ES_HTTP_PROXY_PORT
+    Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
-    Private-Port-Name: AMQP_SSL_PORT
-    Private-Port:      31334
-    Public-Port-Name:  AMQP_SSL_PROXY_PORT
-    Protocols: [tls]
-    Mappings:
-    - Frontend: 'TLS_PORT_3'
-      Backend: ''
+    Private-Port-Name: ES_TCP_PORT
+    Private-Port:      19301
+    Public-Port-Name:  ES_TCP_PROXY_PORT
+    Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
-    Private-Port-Name: MQTT_SSL_PORT
-    Private-Port:      31384
-    Public-Port-Name:  MQTT_SSL_PROXY_PORT
-    Protocols: [tls]
-    Mappings:
-    - Frontend: 'TLS_PORT_4'
-      Backend: ''
-
-
-#  - Private-IP-Name:   IP
-#    Private-Port-Name: ES_HTTP_PORT
-#    Private-Port:      18080
-#    Public-Port-Name:  ES_HTTP_PROXY_PORT
-#    Options:           { "ssl_to_gear": true }
-#  - Private-IP-Name:   IP
-#    Private-Port-Name: ES_TCP_PORT
-#    Private-Port:      19301
-#    Public-Port-Name:  ES_TCP_PROXY_PORT
-#    Options:           { "ssl_to_gear": true }
+    Private-Port-Name: LEVELDB_REPLICATION_PORT
+    Private-Port:      31353
+    Public-Port-Name:  LEVELDB_REPLICATION_PROXY_PORT
+    Options:           { "ssl_to_gear": true }
 
 Install-Build-Required: false
