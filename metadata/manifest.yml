@@ -115,12 +115,12 @@ Endpoints:
     Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
     Private-Port-Name: MQTT_PORT
-    Private-Port:      31343
+    Private-Port:      31383
     Public-Port-Name:  MQTT_PROXY_PORT
     Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
     Private-Port-Name: REPLICATION_PORT
-    Private-Port:      31353
+    Private-Port:      31393
     Public-Port-Name:  REPLICATION_PROXY_PORT
     Options:           { "ssl_to_gear": true }
 #
@@ -152,7 +152,7 @@ Endpoints:
       Backend: ''
   - Private-IP-Name:   IP
     Private-Port-Name: MQTT_SSL_PORT
-    Private-Port:      31344
+    Private-Port:      31384
     Public-Port-Name:  MQTT_SSL_PROXY_PORT
     Protocols: [tls]
     Mappings:
