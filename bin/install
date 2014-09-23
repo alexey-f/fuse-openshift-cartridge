@@ -4,13 +4,25 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 # Copy the version specific files into diy directory
 cd $OPENSHIFT_FUSE_DIR/versions/$OPENSHIFT_FUSE_VERSION
-for i in */* ; do
+#for i in */* ; do
+#  if [[ $i == *.erb ]]; then
+#    erb $i > $OPENSHIFT_FUSE_DIR/container/${i%.*}
+#  else
+#    cp $i $OPENSHIFT_FUSE_DIR/container/$i
+#  fi
+#done
+files=$(find . -name \*)
+for i in $files ; do
+  if [ -d $i ]; then
+    continue
+  fi
   if [[ $i == *.erb ]]; then
     erb $i > $OPENSHIFT_FUSE_DIR/container/${i%.*}
   else
-    cp $i $OPENSHIFT_FUSE_DIR/container/$i
+    cp $i $OPENSHIFT_FUSE_DIR/container/$i || :
   fi
 done
+
 
 cd $OPENSHIFT_FUSE_DIR
 # Append shutdown configuration
