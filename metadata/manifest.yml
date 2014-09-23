@@ -121,7 +121,7 @@ Endpoints:
     Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
     Private-Port-Name: LEVELDB_REPLICATION_PORT
-    Private-Port:      31315
+    Private-Port:      61619
     Public-Port-Name:  LEVELDB_REPLICATION_PROXY_PORT
     Options:           { "ssl_to_gear": true }
 
