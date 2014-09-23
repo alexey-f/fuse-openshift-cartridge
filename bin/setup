@@ -3,7 +3,7 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 VERSION=1.1.0
-BUILD=CR5
+BUILD=redhat-025
 
 case "$1" in
   -v|--version)
