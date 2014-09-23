@@ -119,4 +119,10 @@ Endpoints:
     Private-Port:      19301
     Public-Port-Name:  ES_TCP_PROXY_PORT
     Options:           { "ssl_to_gear": true }
+  - Private-IP-Name:   IP
+    Private-Port-Name: LEVELDB_REPLICATION_PORT
+    Private-Port:      31315
+    Public-Port-Name:  LEVELDB_REPLICATION_PROXY_PORT
+    Options:           { "ssl_to_gear": true }
+
 Install-Build-Required: false
