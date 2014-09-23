@@ -99,12 +99,12 @@ Endpoints:
   - Private-IP-Name:   IP
     Private-Port-Name: AMQ_PORT
     Private-Port:      31313
-    Public-Port-Name:  AMQ_PROXY_PORT
+    Public-Port-Name:  OPENWIRE_PROXY_PORT
     Options:           { "ssl_to_gear": true }
   - Private-IP-Name:   IP
     Private-Port-Name: AMQ_SSL_PORT
     Private-Port:      31314
-    Public-Port-Name:  AMQ_SSL_PROXY_PORT
+    Public-Port-Name:  OPENWIRE_SSL_PROXY_PORT
     Protocols: [tls]
     Mappings:
     - Frontend: 'TLS_PORT_1'
