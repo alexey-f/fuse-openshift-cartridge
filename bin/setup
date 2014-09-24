@@ -5,7 +5,7 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 #VERSION=1.1.0
 #BUILD=redhat-025
 VERSION=1.0.0
-BUILD=redhat-398
+BUILD=redhat-379
 
 case "$1" in
   -v|--version)
