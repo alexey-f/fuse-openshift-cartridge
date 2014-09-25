@@ -18,10 +18,10 @@
 
 -->
 
-<features name="activemq-core-5.9.0.redhat-610396">
+<features name="activemq-core-5.11-SNAPSHOT">
 
     <!-- Bundles needed if only client will be deployed in the container -->
-    <feature name="activemq-client" description="ActiveMQ client libraries" version="5.9.0.redhat-610396" resolver="(obr)" start-level="50">
+    <feature name="activemq-client" description="ActiveMQ client libraries" version="5.11-SNAPSHOT" resolver="(obr)" start-level="50">
         <feature version="[3.1,4)">spring</feature>
         <bundle dependency="true">mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/1.1.1</bundle>
         <bundle dependency="true">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
@@ -38,9 +38,9 @@
     </feature>
 
     <!-- All bundles needed by the broker -->
-    <feature name="activemq" description="ActiveMQ broker libraries" version="5.9.0.redhat-610396" resolver="(obr)" start-level="50">
+    <feature name="activemq" description="ActiveMQ broker libraries" version="5.11-SNAPSHOT" resolver="(obr)" start-level="50">
       <feature>http</feature>
-      <feature version="5.9.0.redhat-610396">activemq-client</feature>
+      <feature version="5.11-SNAPSHOT">activemq-client</feature>
       <bundle>mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610396</bundle>
       <bundle dependency="true">mvn:org.apache.xbean/xbean-spring/3.15</bundle>
       <bundle dependency="true">mvn:commons-collections/commons-collections/3.2.1</bundle>
