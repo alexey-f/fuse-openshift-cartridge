@@ -18,27 +18,27 @@
 
 -->
 
-<features name="activemq-5.11-SNAPSHOT">
+<features name="activemq-5.10.0.redhat-620026">
 
     <repository>mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610396/xml/features-core</repository> 
 
     <!-- Starts the broker with default configuration -->
-    <feature name="activemq-broker-noweb" description="Full ActiveMQ broker with default configuration" version="5.11-SNAPSHOT" resolver="(obr)" start-level="50">
-        <feature version="5.11-SNAPSHOT">activemq</feature>
+    <feature name="activemq-broker-noweb" description="Full ActiveMQ broker with default configuration" version="5.10.0.redhat-620026" resolver="(obr)" start-level="50">
+        <feature version="5.10.0.redhat-620026">activemq</feature>
         <configfile finalname="/etc/activemq.xml">mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610396/xml/activemq</configfile>
         <configfile finalname="/etc/org.apache.activemq.server-default.cfg">mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610396/cfg/activemq</configfile>
     </feature>
 
     <!-- Starts the broker with default configuration -->
-    <feature name="activemq-broker" description="Full ActiveMQ broker with default configuration and web console" version="5.11-SNAPSHOT" resolver="(obr)" start-level="50">
-        <feature version="5.11-SNAPSHOT">activemq</feature>
+    <feature name="activemq-broker" description="Full ActiveMQ broker with default configuration and web console" version="5.10.0.redhat-620026" resolver="(obr)" start-level="50">
+        <feature version="5.10.0.redhat-620026">activemq</feature>
         <configfile finalname="/etc/activemq.xml">mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610396/xml/activemq</configfile>
         <configfile finalname="/etc/org.apache.activemq.server-default.cfg">mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610396/cfg/activemq</configfile>
 <!--        <feature version="5.9.0.redhat-610379">activemq-web-console</feature> -->
     </feature>
 
-    <feature name="activemq-camel" version="5.11-SNAPSHOT" resolver="(obr)" start-level="50">
-        <feature version="5.11-SNAPSHOT">activemq-client</feature>
+    <feature name="activemq-camel" version="5.10.0.redhat-620026" resolver="(obr)" start-level="50">
+        <feature version="5.10.0.redhat-620026">activemq-client</feature>
         <bundle>mvn:org.apache.activemq/activemq-camel/5.9.0.redhat-610396</bundle>
         <feature version="[2.12,3)">camel-jms</feature>
         <feature version="[2.12,3)">camel</feature>
@@ -51,8 +51,8 @@
       <bundle>mvn:org.apache.activemq/activemq-web-console/5.9.0.redhat-610379/war</bundle>
     </feature>
 -->
-    <feature name="activemq-blueprint" version="5.11-SNAPSHOT" resolver="(obr)" start-level="50">
-      <feature version="5.11-SNAPSHOT">activemq</feature>
+    <feature name="activemq-blueprint" version="5.10.0.redhat-620026" resolver="(obr)" start-level="50">
+      <feature version="5.10.0.redhat-620026">activemq</feature>
       <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.scripting-api-1.0/1.9.0</bundle>
       <bundle dependency="true">mvn:org.apache.commons/commons-jexl/2.0.1</bundle>
       <bundle dependency="true">mvn:org.apache.xbean/xbean-blueprint/3.15</bundle>
